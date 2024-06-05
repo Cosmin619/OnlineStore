@@ -11,27 +11,28 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.0.x'
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
 
-    - name: Restore dependencies
-      run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore
 
-    - name: Build project
-      run: dotnet build --no-restore --configuration Release
+      - name: Build project
+        run: dotnet build --no-restore --configuration Release
 
-    - name: Run tests
-      run: dotnet test --no-restore --verbosity normal
+      - name: Run tests
+        run: dotnet test --no-restore --verbosity normal
 
-    - name: Publish project
-      run: dotnet publish --no-restore --configuration Release --output publish
+      - name: Publish project
+        run: dotnet publish --no-restore --configuration Release --output publish
 
-    - name: Deploy to directory
-      run: |
-        New-Item -ItemType Directory -Force -Path "D:\Facultate\Web Services\DeployedApp"
-        Copy-Item -Path publish\* -Destination "D:\Facultate\Web Services\DeployedApp" -Recurse
+      - name: Create artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: publish
