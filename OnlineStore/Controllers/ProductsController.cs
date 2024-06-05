@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineStore.Data;
 using OnlineStore.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OnlineStore.Controllers
 {

@@ -73,3 +73,4 @@ D:\Facultate\Web Services\OnlineStore\OnlineStore\obj\Debug\net6.0\refint\Online
 D:\Facultate\Web Services\OnlineStore\OnlineStore\obj\Debug\net6.0\OnlineStore.pdb
 D:\Facultate\Web Services\OnlineStore\OnlineStore\obj\Debug\net6.0\OnlineStore.genruntimeconfig.cache
 D:\Facultate\Web Services\OnlineStore\OnlineStore\obj\Debug\net6.0\ref\OnlineStore.dll
+D:\Facultate\Web Services\OnlineStore\OnlineStore\obj\Debug\net6.0\OnlineStore.sourcelink.json

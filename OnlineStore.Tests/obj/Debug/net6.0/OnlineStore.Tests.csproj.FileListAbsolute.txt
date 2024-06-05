@@ -153,3 +153,4 @@ D:\Facultate\Web Services\OnlineStore\OnlineStore.Tests\obj\Debug\net6.0\refint\
 D:\Facultate\Web Services\OnlineStore\OnlineStore.Tests\obj\Debug\net6.0\OnlineStore.Tests.pdb
 D:\Facultate\Web Services\OnlineStore\OnlineStore.Tests\obj\Debug\net6.0\OnlineStore.Tests.genruntimeconfig.cache
 D:\Facultate\Web Services\OnlineStore\OnlineStore.Tests\obj\Debug\net6.0\ref\OnlineStore.Tests.dll
+D:\Facultate\Web Services\OnlineStore\OnlineStore.Tests\obj\Debug\net6.0\OnlineStore.Tests.sourcelink.json
