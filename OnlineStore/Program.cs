@@ -72,4 +72,41 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Create roles and admin user
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserModel>>();
+
+    string[] roleNames = { "Admin", "User" };
+    IdentityResult roleResult;
+
+    foreach (var roleName in roleNames)
+    {
+        var roleExist = await roleManager.RoleExistsAsync(roleName);
+        if (!roleExist)
+        {
+            roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
+        }
+    }
+
+    var powerUser = new UserModel
+    {
+        UserName = builder.Configuration["AppSettings:AdminUserEmail"],
+        Email = builder.Configuration["AppSettings:AdminUserEmail"]
+    };
+
+    string userPassword = builder.Configuration["AppSettings:AdminUserPassword"];
+    var user = await userManager.FindByEmailAsync(builder.Configuration["AppSettings:AdminUserEmail"]);
+
+    if (user == null)
+    {
+        var createPowerUser = await userManager.CreateAsync(powerUser, userPassword);
+        if (createPowerUser.Succeeded)
+        {
+            await userManager.AddToRoleAsync(powerUser, "Admin");
+        }
+    }
+}
+
 app.Run();
